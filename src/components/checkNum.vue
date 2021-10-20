@@ -239,7 +239,7 @@ export default {
   text-align: center;
   color: white;
   align-self: center;
-  /* position: fixed; */
+  position: fixed;
   bottom: 0;
 }
 
@@ -269,16 +269,17 @@ export default {
 .frame {
   z-index: 1;
   width: 100%; height: 100%; position: absolute; top:0; left:0;
+  overflow: hidden;
 }
 
 .wall {
   z-index: 3;
-  width: 100%; height: 100%; position: absolute; top:0; left:0;
+  width: 100%; height: auto; position: absolute; top:0; left:0;
 }
 
 .wall2 {
   z-index: 5;
-  width: 100%; height: 100%; position: absolute; top:180px; left:50px;
+  width: 100%; height: auto; position: absolute; top:180px; left:50px;
 }
 
 

@@ -1,8 +1,10 @@
 <template>
-  <div class="svg-wrapper">
+  <div class="short">
+    <div class="svg-wrapper">
 	<simple-svg 
 	:src="require('@/assets/img/g.svg')"
 	/>
+    </div>
   </div>
 </template>
 
@@ -13,5 +15,12 @@ export default {
 </script>
 
 <style>
+.svg-wrapper {
+	height: auto;
+}
+
+.short {
+	height: 100vh;
+}
 
 </style>
