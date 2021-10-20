@@ -1,18 +1,23 @@
 <template>
-  <div :class="bclass" @click="checkCondition">
+  <div :class="bclass" @click="checkCondition($event)">
+    <tarea v-if="num===30||num===42 ||num===44||num===46||num===47" :index="num" class="tarea" />
+    <question v-if="num===24 ||num===26 ||num===28 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===45" :index="num" :vlist="vlist" class="question" />
     <frame v-if="num === 6 || num ===8 || num === 10" class="frame" :class="{'fade-out': fadeOut}" />
-    <wall v-if="num===22 ||num===24 ||num===26 ||num===28 ||num===30 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===42 ||num===44 ||num===45" class="wall fade" :class="{'fade-out': fadeOut}"/>
-    <div v-if="num===22" class="svg-wrapper wall2" :class="{'fade-out': fadeOut}">
+    <wall v-if="num===22 ||num===24 ||num===26 ||num===28 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===45" :opacity="0.6" class="wall"/>
+    <wall v-if="num===30||num===42 ||num===44" :opacity="0.8" class="wall"/>
+    <wall v-if="num===46" :opacity="0.9" class="wall"/>
+    <wall v-if="num===47" :opacity="0.7" class="wall"/>
+    <div v-if="num===22" class="svg-wrapper stamp" :class="{'fade-out': fadeOut}">
         <simple-svg
           :src="require('@/assets/img/c22.svg')"
         />
       </div>
     <div class="ph" :class="{'fade-out': fadeOut}">
       <top class="top" :index="num"/>
-      <imageLoading :index="num" />
+      <image-loading :index="num" />
     </div>
     <div class="pht" :class="{'fade-out': fadeOut}">
-      <tSection :index="num" />
+      <t-section :index="num" />
       <button class="bt" v-if="num === 1" @click="addNumber"><h3>시작하기</h3></button>
       <button class="bt2" v-if="num === 21" @click="addNumber"><h3>발권하기</h3></button>
     </div>
@@ -21,15 +26,20 @@
 </template>
 
 <script>
-import imageLoading from './imageLoading.vue'
-import tSection from './tSection.vue'
-import frame from './frame.vue'
-import top from './top.vue'
-import wall from './wall.vue'
+import imageLoading from '../components/imageLoading.vue'
+import tSection from '../components/tSection.vue'
+import frame from '../components/frame.vue'
+import top from '../components/top.vue'
+import wall from '../components/wall.vue'
+import question from '../components/question.vue'
+import tarea from '../components/tarea.vue'
+
 export default {
   
     name: 'CheckNum',
     components:{
+        tarea,
+        question,
         top,
         wall,
         frame,
@@ -41,7 +51,9 @@ export default {
             fadeOut: true,
             num: 1,
             cflag: true,
-            dflag: true
+            dflag: true,
+            vlist: [0,0,0,0,0]
+            // mflag: true,
         }
     },
     computed:{
@@ -68,7 +80,30 @@ export default {
         addNumber(){
             this.num +=1;
         },
-        checkCondition(){
+        checkCondition(event){
+            // if(this.mflag){
+            //     this.play()
+            //     this.mflag = false
+            // }
+
+            if(this.num===24 ||this.num===26 ||this.num===28 ||this.num===32 ||this.num===34 ||this.num===36 ||this.num===38||this.num===40 ||this.num===45){
+
+                if(!event.target.classList.contains('banana') && !event.target.classList.contains('qp')){
+                    return
+                }
+            }
+
+            //finish
+            if(this.num === 48) {
+                const colors = ['r', 'y', 'g', 'b', 'p']
+
+                const max = Math.max(...this.vlist)
+                const cindex = this.vlist.indexOf(max)
+
+                this.$router.push({name:'result', params: {color: colors[cindex]}})
+
+            }
+
             if(this.num > 1 && this.num != 21) {
                 if(this.num == 2 && this.cflag){
                     this.num--
@@ -82,13 +117,21 @@ export default {
             }
         },
         changeData() {
-            console.log('here')
             this.fadeOut = true;
 
             setTimeout(() => {
                 this.fadeOut = false;
             }, 500);
-        }
+        },
+        // play() {
+        //     console.log('play')
+        //     const audio = new Audio("./c.mp3");
+        //     audio.load()
+        //     audio.crossOrigin = 'anonymous'
+        //     audio.autoplay = true
+        //     audio.loop = true
+        //     audio.play().then().catch(v => console.log(v))
+        // }
     }
 }
 </script>
@@ -252,7 +295,7 @@ export default {
   align-self: center;
   color:white; 
   /* width: 20vw; */
-  width: 30%;
+  width: 30vw;
   text-align: center;
   background-color:#FF7C03;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25);
@@ -263,7 +306,7 @@ export default {
 .bt2 {
   align-self: center;
   color:black; 
-  width: 30%;
+  width: 30vw;
   text-align: center;
   background-color:#FF7C03;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25);
@@ -278,12 +321,30 @@ export default {
 
 .wall {
   z-index: 3;
-  width: 100%; height: auto; position: absolute; top:0; left:0;
+  width: 100%; height: 100%; position: absolute; top:0; left:0;
 }
 
-.wall2 {
+.wall8 {
+  z-index: 3;
+  width: 100%; height: 100%; position: absolute; top:0; left:0;
+  background-color: black;
+  opacity:0.8;
+}
+
+.stamp {
   z-index: 5;
   width: 100%; height: auto; position: absolute; top:180px; left:50px;
+}
+
+.question {
+  z-index: 6;
+  width: 100%; height: 100%; position: absolute; top:0; left:0;
+}
+
+.tarea {
+  z-index: 6;
+  width: 100%; height: 100%; position: absolute; top:30%; left:0;
+
 }
 
 

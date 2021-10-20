@@ -2,7 +2,7 @@
   <div class="short">
     <div class="svg-wrapper">
 	<simple-svg 
-	:src="require('@/assets/img/g.svg')"
+	:src="require('@/assets/img/gg.svg')"
 	/>
     </div>
   </div>

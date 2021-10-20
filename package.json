@@ -11,6 +11,7 @@
     "@vue/composition-api": "^1.2.4",
     "core-js": "^3.6.5",
     "vue": "2.6.11",
+    "vue-router": "^3.5.2",
     "vue-simple-svg": "^2.0.2",
     "vue-template-compiler": "2.6.11",
     "vuetify": "^2.4.0"
@@ -41,7 +42,10 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "indent": ["error", 4]
+      "indent": [
+        "error",
+        4
+      ]
     }
   },
   "browserslist": [

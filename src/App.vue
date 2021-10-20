@@ -1,17 +1,14 @@
 <template>
     <v-app >
-        <checknum/>
+        <router-view />
     </v-app>
 </template>
 
 <script>
-import Checknum from './components/checkNum.vue'
-
 export default {
     name: 'App',
 
     components: {
-        Checknum,
     },
 
     data: () => ({

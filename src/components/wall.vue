@@ -1,17 +1,22 @@
 <template>
-  <div class="wall">
+  <div :style="`opacity:${opacity}`" class="blackOpacity">
   </div>
 </template>
 
 <script>
 export default {
     name: "wall",
+    props:{
+        opacity:{
+            type: Number,
+            require: true
+        }
+    }
 }
 </script>
 
 <style>
-  .wall {
+  .blackOpacity {
       background-color: black;
-      opacity:0.6;
   }
 </style>

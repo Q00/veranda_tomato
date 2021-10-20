@@ -14,15 +14,10 @@
 <script>
 export default {
     name: "imageLoading",
-    props: {
-        index: {
-            type: Number,
-            required: true
-        }
-    },
+    props: ['index'],
     methods: {
         svgLoaded () {
-            console.log('index', this.index)
+            // console.log('index', this.index)
         }
     }
 
