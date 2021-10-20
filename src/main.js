@@ -8,6 +8,6 @@ Vue.use(compositionApi)
 Vue.use(VueSimpleSVG)
 
 new Vue({
-  vuetify,
-  render: (h) => h(App)
+    vuetify,
+    render: (h) => h(App)
 }).$mount("#app")

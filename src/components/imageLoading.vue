@@ -4,6 +4,7 @@
 	key="default"
 	custom_id="default"
 	custom-class-name="default-class"
+	height="auto"
 	:src="require('@/assets/img/'+index+'.svg')"
 	@load="svgLoaded()"
 	/>
@@ -29,5 +30,4 @@ export default {
 </script>
 
 <style>
-
 </style>

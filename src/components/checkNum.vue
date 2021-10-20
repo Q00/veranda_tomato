@@ -221,24 +221,25 @@ export default {
 
 
 .ph {
-  flex: 0.5;
+  /* flex: 0.5; */
   z-index: 2;
-  height: 80vh;
-  max-height: 450;
+  margin-bottom: 10%;
+  /* height: auto; */
 }
 
 .pht {
-  width: 60%;
-  flex:0.2;
+  width: 100%;
+  /* flex:0.2; */
   align-self: center;
   z-index: 4;
 }
 
 .footer {
-  flex:0.3;
+  /* flex:0.3; */
   text-align: center;
   color: white;
   align-self: center;
+  position: fixed;
   bottom: 0;
 }
 
@@ -246,8 +247,8 @@ export default {
   align-self: center;
   color:white; 
   /* width: 20vw; */
-  width: 30%;
-  height: 25%;
+  width: 30vw;
+  height: 40%;
   text-align: center;
   background-color:#FF7C03;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25);
