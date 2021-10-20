@@ -40,9 +40,24 @@ export default {
     },
     methods:{
         share(){
+            let color = ''
+            switch (this.color) {
+            case 'r':
+                color = "빨강색"
+                break
+            case 'y':
+                color="노란색"
+                break
+            case 'g':
+                color="초록색"
+                break
+            default:
+                color="파랑색"
+            }
+
             const title = "베란다 토마토 심리테스트"
-            const text = "당신에게 나타난 회색 인간의 색깔을 맞춰보세요!"
-            const url = `${this.color}`
+            const text = `내 회색인간은 ${color} 색! 회색인간의 색을 맞춰보세요!`
+            const url = `https://q00.github.io/veranda_tomato`
 
             if(navigator.share){
                 navigator.share({
