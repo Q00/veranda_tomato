@@ -15,7 +15,6 @@
       <tSection :index="num" />
       <button class="bt" v-if="num === 1" @click="addNumber"><h3>시작하기</h3></button>
       <button class="bt2" v-if="num === 21" @click="addNumber"><h3>발권하기</h3></button>
-
     </div>
     <p class="footer">ⓒ 2021. 이민아 All Rights Reserved.</p>
 
@@ -223,7 +222,8 @@ export default {
 .ph {
   /* flex: 0.5; */
   z-index: 2;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+  width: 100vw;
   /* height: auto; */
 }
 
@@ -239,7 +239,7 @@ export default {
   text-align: center;
   color: white;
   align-self: center;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
 }
 
@@ -247,8 +247,7 @@ export default {
   align-self: center;
   color:white; 
   /* width: 20vw; */
-  width: 30vw;
-  height: 40%;
+  width: 30%;
   text-align: center;
   background-color:#FF7C03;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25);
