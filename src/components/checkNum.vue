@@ -1,23 +1,22 @@
 <template>
   <div :class="bclass" @click="checkCondition">
-    <frame v-if="num === 6 || num ===8 || num === 10" class="frame" />
-    <wall v-if="num===22 ||num===24 ||num===26 ||num===28 ||num===30 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===42 ||num===44 ||num===45" class="wall" />
-    <div v-if="num===22" class="svg-wrapper wall2">
+    <frame v-if="num === 6 || num ===8 || num === 10" class="frame" :class="{'fade-out': fadeOut}" />
+    <wall v-if="num===22 ||num===24 ||num===26 ||num===28 ||num===30 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===42 ||num===44 ||num===45" class="wall fade" :class="{'fade-out': fadeOut}"/>
+    <div v-if="num===22" class="svg-wrapper wall2" :class="{'fade-out': fadeOut}">
         <simple-svg
           :src="require('@/assets/img/c22.svg')"
         />
       </div>
-    <div class="ph">
+    <div class="ph" :class="{'fade-out': fadeOut}">
       <top class="top" :index="num"/>
       <imageLoading :index="num" />
     </div>
-    <div class="pht">
+    <div class="pht" :class="{'fade-out': fadeOut}">
       <tSection :index="num" />
       <button class="bt" v-if="num === 1" @click="addNumber"><h3>시작하기</h3></button>
       <button class="bt2" v-if="num === 21" @click="addNumber"><h3>발권하기</h3></button>
     </div>
     <p class="footer">ⓒ 2021. 이민아 All Rights Reserved.</p>
-
   </div>
 </template>
 
@@ -39,6 +38,7 @@ export default {
     },
     data() {
         return {
+            fadeOut: true,
             num: 1,
             cflag: true,
             dflag: true
@@ -66,11 +66,9 @@ export default {
     },
     methods: {
         addNumber(){
-            this.num +=1
+            this.num +=1;
         },
         checkCondition(){
-
-          
             if(this.num > 1 && this.num != 21) {
                 if(this.num == 2 && this.cflag){
                     this.num--
@@ -80,7 +78,16 @@ export default {
                     this.dflag = false
                 }
                 this.addNumber()
+                this.changeData()
             }
+        },
+        changeData() {
+            console.log('here')
+            this.fadeOut = true;
+
+            setTimeout(() => {
+                this.fadeOut = false;
+            }, 500);
         }
     }
 }
@@ -217,18 +224,16 @@ export default {
 }
 
 
-
-
 .ph {
   /* flex: 0.5; */
   z-index: 2;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   width: 100vw;
   /* height: auto; */
 }
 
 .pht {
-  width: 100%;
+  /* width: 100% */
   /* flex:0.2; */
   align-self: center;
   z-index: 4;
@@ -258,8 +263,7 @@ export default {
 .bt2 {
   align-self: center;
   color:black; 
-  width: 30vw;
-  height: 33%;
+  width: 30%;
   text-align: center;
   background-color:#FF7C03;
   box-shadow: 0 4px 4px rgba(0,0,0,0.25);
@@ -287,4 +291,43 @@ export default {
   margin-top: 5%;
 }
 
+.fade-out {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 </style>

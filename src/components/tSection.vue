@@ -172,7 +172,8 @@ export default {
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  margin: 15px 20px 0 20px;
+  margin: 15px 15px 0 15px;
+  padding: 5px 5px 1px 5px;
 }
 
 .banana {
@@ -180,8 +181,9 @@ export default {
   background: #F9FFD7;
   box-sizing: border-box;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  margin: 15px 20px 0 20px;
+  border-radius: 10px;
+  margin: 15px 15px 0 15px;
+  padding: 5px 5px 1px 5px;
 }
 
 
