@@ -42,7 +42,7 @@ export default {
         share(){
             const title = "베란다 토마토 심리테스트"
             const text = "당신에게 나타난 회색 인간의 색깔을 맞춰보세요!"
-            const url = `${location.host}/color/${this.color}`
+            const url = `${this.color}`
 
             if(navigator.share){
                 navigator.share({
