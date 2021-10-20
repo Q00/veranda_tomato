@@ -56,7 +56,7 @@ export default {
             }
 
             const title = "베란다 토마토 심리테스트"
-            const text = `내 회색인간은 ${color} 색! 회색인간의 색을 맞춰보세요!`
+            const text = `내 회색인간은 ${color}! 회색인간의 색을 맞춰보세요!`
             const url = `https://q00.github.io/veranda_tomato`
 
             if(navigator.share){
