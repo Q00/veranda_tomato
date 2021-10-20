@@ -88,7 +88,8 @@ export default {
 
             if(this.num===24 ||this.num===26 ||this.num===28 ||this.num===32 ||this.num===34 ||this.num===36 ||this.num===38||this.num===40 ||this.num===45){
 
-                if(!event.target.classList.contains('banana') && !event.target.classList.contains('qp')){
+                if(event.target.classList.contains('qt') ||
+                 !event.target.classList.contains('qp')){
                     return
                 }
             }

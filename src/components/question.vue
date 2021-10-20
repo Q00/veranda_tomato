@@ -1,8 +1,8 @@
 <template>
   <div class="select">
-	<p class="banana" v-html="texts[index].q"></p>
+	<p class="banana qt" v-html="texts[index].q"></p>
     <div v-for="t in this.texts[this.index].qlist" :key="index + t.color">
-        <button class="banana" @click="addValue(t.color)"><p class="qp" v-html="t.v"></p></button>
+        <button class="banana qp" @click="addValue(t.color)"><p class="qp" v-html="t.v"></p></button>
     </div>
   </div>
 </template>

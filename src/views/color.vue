@@ -44,15 +44,15 @@ export default {
             const text = "당신에게 나타난 회색 인간의 색깔을 맞춰보세요!"
             const url = `${location.host}/color/${this.color}`
 
-            // if(navigator.share){
-            navigator.share({
-                title,
-                text,
-                url
-            }).then().catch(v => console.log(v))
-            // } else {
-            //     alert("공유하기를 지원하지 않는 환경입니다.")
-            // }
+            if(navigator.share){
+                navigator.share({
+                    title,
+                    text,
+                    url
+                }).then().catch(v => console.log(v))
+            } else {
+                alert("공유하기를 지원하지 않는 환경입니다.")
+            }
         },
         back(){
             this.$router.push('/')
