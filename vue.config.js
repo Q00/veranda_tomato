@@ -1,4 +1,8 @@
 module.exports = {
   outputDir: './docs',
-  publicPath: '/veranda_tomato/'
+  publicPath: '/veranda_tomato/',
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }
