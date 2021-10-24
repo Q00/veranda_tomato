@@ -1,5 +1,7 @@
 <template>
   <div :class="bclass" @click="checkCondition($event)">
+    <audio v-if="num===2" loop autoplay src="../assets/music/goorm.mp3"> 
+    </audio>
     <tarea v-if="num===30||num===42 ||num===44||num===46||num===47" :index="num" class="tarea" />
     <question v-if="num===24 ||num===26 ||num===28 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===45" :index="num" :vlist="vlist" class="question" />
     <frame v-if="num === 6 || num ===8 || num === 10" class="frame" :class="{'fade-out': fadeOut}" />
@@ -33,6 +35,8 @@ import top from '../components/top.vue'
 import wall from '../components/wall.vue'
 import question from '../components/question.vue'
 import tarea from '../components/tarea.vue'
+import {Howl} from 'howler';
+
 
 export default {
   
@@ -107,6 +111,7 @@ export default {
 
             if(this.num > 1 && this.num != 21) {
                 if(this.num == 2 && this.cflag){
+                    this.play()
                     this.num--
                     this.cflag = false
                 } else if (this.num == 22 && this.dflag){
@@ -124,15 +129,33 @@ export default {
                 this.fadeOut = false;
             }, 500);
         },
-        // play() {
-        //     console.log('play')
-        //     const audio = new Audio("./c.mp3");
-        //     audio.load()
-        //     audio.crossOrigin = 'anonymous'
-        //     audio.autoplay = true
-        //     audio.loop = true
-        //     audio.play().then().catch(v => console.log(v))
-        // }
+        play() {
+
+            // const audio = new Audio("./assets/music/goorm.mp3");
+            // audio.load()
+            // audio.setAttribute('crossorigin', 'anonymous')
+            // audio.crossOrigin = 'anonymous'
+            // audio.autoplay = true
+            // audio.loop = true
+            // audio.play().then().catch(v => console.log(v))
+            const sound = new Howl({
+                src: ["./assets/music/goorm.mp3"],
+                autoplay: true,
+                loop: true,
+                volume: 0.5,
+                onplay: function() {
+                    console.log('play2')
+                },
+                onload: function() {
+                    console.log('load')
+                },
+                onend: function() {
+                    console.log('Finished!');
+                }
+            });
+
+            sound.play()
+        }
     }
 }
 </script>
