@@ -1,6 +1,6 @@
 <template>
   <div :class="bclass" @click="checkCondition($event)">
-    <audio v-if="num!==2" loop autoplay src="../assets/music/goorm.mp3"> 
+    <audio v-if="num!==1" loop autoplay src="../assets/music/goorm.mp3"> 
     </audio>
     <tarea v-if="num===30||num===42 ||num===44||num===46||num===47" :index="num" class="tarea" />
     <question v-if="num===24 ||num===26 ||num===28 ||num===32 ||num===34 ||num===36 ||num===38||num===40 ||num===45" :index="num" :vlist="vlist" class="question" />
