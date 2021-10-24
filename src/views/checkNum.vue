@@ -35,7 +35,7 @@ import top from '../components/top.vue'
 import wall from '../components/wall.vue'
 import question from '../components/question.vue'
 import tarea from '../components/tarea.vue'
-import {Howl} from 'howler';
+// import {Howl} from 'howler';
 
 
 export default {
@@ -138,23 +138,23 @@ export default {
             // audio.autoplay = true
             // audio.loop = true
             // audio.play().then().catch(v => console.log(v))
-            const sound = new Howl({
-                src: ["./assets/music/goorm.mp3"],
-                autoplay: true,
-                loop: true,
-                volume: 0.5,
-                onplay: function() {
-                    console.log('play2')
-                },
-                onload: function() {
-                    console.log('load')
-                },
-                onend: function() {
-                    console.log('Finished!');
-                }
-            });
+            // const sound = new Howl({
+            //     src: ["./assets/music/goorm.mp3"],
+            //     autoplay: true,
+            //     loop: true,
+            //     volume: 0.5,
+            //     onplay: function() {
+            //         console.log('play2')
+            //     },
+            //     onload: function() {
+            //         console.log('load')
+            //     },
+            //     onend: function() {
+            //         console.log('Finished!');
+            //     }
+            // });
 
-            sound.play()
+            // sound.play()
         }
     }
 }
