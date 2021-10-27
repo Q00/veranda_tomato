@@ -14,7 +14,7 @@
 
 <script>
 import tSection from '../components/tSection.vue'
-
+import axios from 'axios'
 
 export default {
     name:"result",
@@ -22,6 +22,7 @@ export default {
     props:['color'],
     methods:{
         goFinalResult(){
+            axios.get("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fq00.github.io%2Fveranda_tomato%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false").then().catch()
             this.$router.push({name: 'color', params:{color: this.color}})
         }
     }

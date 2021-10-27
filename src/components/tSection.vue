@@ -135,9 +135,9 @@ export default {
  내일은 더 바삭바삭하고 <br/>
 새콤달콤한 하루를 맞이하길 원한다면 <br/>
 이민아 작가의 사이트를 방문해주세요<br/>
- www.oxmlox.com<br/>
-@veranda_tomato<br/>
-@oxmlox`,
+ <a href="https://www.oxmlox.com">www.oxmlox.com</a><br/>
+<a href="https://www.instagram.com/veranda_tomato/">@veranda_tomato</a><br/>
+<a href="https://www.instagram.com/oxmlox/">@oxmlox</a>`,
                 `후원 / 서울문화재단, 사획적기업 위누 <br/>
 기획/ 이민아. 김주희 <br/>
 그림 / 이민아 <br/>

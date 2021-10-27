@@ -106,7 +106,7 @@ export default {
                 const cindex = this.vlist.indexOf(max)
 
                 this.$router.push({name:'result', params: {color: colors[cindex]}})
-
+                return
             }
 
             if(this.num > 1 && this.num != 21) {
