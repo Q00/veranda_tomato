@@ -51,6 +51,9 @@ export default {
             case 'g':
                 color="초록색"
                 break
+            case 'p':
+                color="보라색"
+                break
             default:
                 color="파랑색"
             }
